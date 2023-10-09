@@ -1,12 +1,13 @@
 const express = require("express");
 const AWS = require("aws-sdk");
 const app = express();
+require('dotenv').config();
 
 //Credentials
 AWS.config.update({
-  region: "us-east-1",
-  accessKeyId: "AKIA6EOVVUOCBLIETP7M",
-  secretAccessKey: "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",
+  region: process.env.REGION,
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.SECRET_ACCESS_KEY,
 });
 
 const lambda = new AWS.Lambda();
